@@ -1,0 +1,15 @@
+-- Sales Analysis
+
+# Top 10 Artist
+
+SELECT a.Name, SUM(i.UnitPrice * i.Quantity) AS TotalRevenue
+FROM Artist a
+INNER JOIN Album al
+ON a.ArtistId = al.ArtistId
+INNER JOIN Track t
+ON al.AlbumId = t.AlbumId
+INNER JOIN InvoiceLine i
+ON t.TrackId = i.TrackId
+GROUP BY a.Name
+ORDER BY TotalRevenue DESC
+LIMIT 10;
