@@ -1,0 +1,13 @@
+-- Music Analysis
+
+# Top 10 Genre
+
+SELECT g.Name, SUM(i.UnitPrice * i.Quantity) AS TotalRevenue
+FROM Genre g
+INNER JOIN Track t
+ON g.GenreId = t.GenreId
+INNER JOIN InvoiceLine i
+ON t.TrackId = i.TrackId
+GROUP BY g.Name
+ORDER BY TotalRevenue DESC
+LIMIT 10;
