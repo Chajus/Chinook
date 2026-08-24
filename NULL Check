@@ -1,0 +1,56 @@
+# Null Check For Important Columns/Tables
+
+SELECT 
+	COUNT(*) AS Total_Albums,
+    COUNT(*) - COUNT(AlbumId) AS Album_nulls,
+    COUNT(*) - COUNT(Title) AS Title_nulls,
+    COUNT(*) - COUNT(ArtistId) AS Artist_nulls
+FROM Album;
+
+SELECT 
+	COUNT(*) AS Total_Customers,
+    COUNT(*) - COUNT(CustomerID) AS id_nulls,
+    COUNT(*) - COUNT(FirstName) AS first_name_nulls,
+    COUNT(*) - COUNT(LastName) AS last_name_nulls,
+    COUNT(*) - COUNT(Company) AS Company_nulls,
+    COUNT(*) - COUNT(Address) AS Address_nulls,
+    COUNT(*) - COUNT(City) AS City_nulls,
+    COUNT(*) - COUNT(State) AS State_nulls,
+    COUNT(*) - COUNT(Country) AS Country_nulls,
+    COUNT(*) - COUNT(PostalCode) AS Postal_nulls,
+    COUNT(*) - COUNT(Phone) AS Phone_nulls,
+    COUNT(*) - COUNT(Fax) AS Fax_nulls,
+    COUNT(*) - COUNT(Email) AS Email_nulls,
+    COUNT(*) - COUNT(SupportRepId) AS Support_nulls
+FROM Customer;
+
+SELECT 
+	COUNT(*) AS Total_Employee,
+    COUNT(*) - COUNT(EmployeeId) AS Employee_Id_null,
+    COUNT(*) - COUNT(LastName) AS LastName_null,
+    COUNT(*) - COUNT(FirstName) AS FirstName_null,
+    COUNT(*) - COUNT(Title) AS Title_null,
+    COUNT(*) - COUNT(ReportsTo) AS Report_null,
+    COUNT(*) - COUNT(BirthDate) AS BirthDate_null,
+    COUNT(*) - COUNT(HireDate) AS HireDate_null,
+    COUNT(*) - COUNT(Address) AS Address_null,
+    COUNT(*) - COUNT(City) AS City_null,
+    COUNT(*) - COUNT(State) AS State_null,
+    COUNT(*) - COUNT(Country) AS Country_null,
+    COUNT(*) - COUNT(PostalCode) AS PostalCode_null,
+    COUNT(*) - COUNT(Phone) AS PhoneNum_null,
+    COUNT(*) - COUNT(Fax) AS Fax_null,
+    COUNT(*) - COUNT(Email) AS Email_null
+FROM Employee;
+
+SELECT
+	COUNT(*) AS Total_Invoice,
+    COUNT(*) - COUNT(InvoiceId) AS Invoice_null,
+    COUNT(*) - COUNT(CustomerId) AS Customer_null,
+    COUNT(*) - COUNT(InvoiceDate) AS InvoiceDate_null,
+    COUNT(*) - COUNT(BillingAddress) AS BillingAddress_null,
+    COUNT(*) - COUNT(BillingCity) AS BillingCity_null,
+    COUNT(*) - COUNT(BillingState) AS BillingState_null,
+    COUNT(*) - COUNT(BillingCountry) AS BillingCountry_null,
+    COUNT(*) - COUNT(BillingPostalCode) AS BillingPostal_null
+FROM Invoice;
