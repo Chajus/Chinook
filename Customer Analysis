@@ -1,0 +1,20 @@
+-- Customer Analysis
+# Top 10 Customer
+
+SELECT c.CustomerId, c.FirstName, c.LastName, SUM(i.Total) AS TotalSpent
+FROM Customer c
+LEFT JOIN Invoice i
+ON c.CustomerId = i.CustomerId
+GROUP BY c.CustomerId, c.FirstName, c.LastName
+ORDER BY TotalSpent DESC
+LIMIT 10;
+
+# Top Country
+
+SELECT c.Country, COUNT(DISTINCT c.CustomerId) AS Customers, SUM(Total) AS TotalSpent
+FROM Customer c
+LEFT JOIN Invoice i
+ON c.CustomerId = i.CustomerId
+GROUP BY c.Country
+ORDER BY TotalSpent DESC
+LIMIT 10;
