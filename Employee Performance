@@ -1,0 +1,13 @@
+-- Employee Performance
+
+# Top 5 Employee Performance by Revenue
+
+SELECT e.EmployeeId, e.FirstName, e.LastName, SUM(i.Total) AS TotalRevenue
+FROM Employee e
+INNER JOIN Customer c
+ON e.EmployeeId = c.SupportRepId
+INNER JOIN Invoice i
+ON c.CustomerId = i.CustomerId
+GROUP BY e.EmployeeId, e.FirstName, e.LastName
+ORDER BY TotalRevenue DESC
+LIMIT 5;
